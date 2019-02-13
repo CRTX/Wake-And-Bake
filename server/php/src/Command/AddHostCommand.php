@@ -2,6 +2,7 @@
 namespace App\Command;
 
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -26,6 +27,9 @@ class AddHostCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $this->addHost($input, $output);
+        $command = $this->getApplication()->find('app:ssh:authorize');
+        $arrayInput = new ArrayInput([]);
+        $returnCode = $command->run($arrayInput, $output);
     }
 
     protected function addHost(InputInterface & $input, OutputInterface & $output)
