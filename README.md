@@ -1,5 +1,5 @@
 # Wake-And-Bake
-API for turning on your PC with any server -- even a Raspberry Pi!
+Webhook API for turning on/off your PC from anywhere.
 
 # Compatibility
 
